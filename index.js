@@ -117,6 +117,17 @@ const buildResponsePayload = (primaryContact, clusterContacts) => {
     };
 };
 
+app.get("/", (_req, res) => {
+    res.status(200).json({
+        message: "Identity Reconciliation API is running",
+        endpoints: {
+            health: "GET /health",
+            identify: "POST /identify",
+            contacts: "GET /contacts"
+        }
+    });
+});
+
 app.get("/health", (_req, res) => {
     res.status(200).json({ status: "ok" });
 });
